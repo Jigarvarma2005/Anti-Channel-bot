@@ -3,3 +3,5 @@ if 'RAILWAY_STATIC_URL' in environ:
     
 else:
   worker: python bot.py
+
+    
