@@ -1,0 +1,40 @@
+{
+    "name": "A Telegram AntiChannel in Group Bot by @Jigarvarma2005.",
+    "description": "A Telegram Bot for kicking mambers who using channel for messeging. Made by @Jigarvarma2005.",
+    "keywords": [
+        "telegram",
+        "AntiChannel",
+        "channel",
+        "Group",
+        "manager",
+        "bot"
+    ],
+    "repository": "https://github.com/Jigarvarma2005/Anti-Channel-bot",
+    "website": "https://telegram.dog/JigarVarma2005",
+    "success_url": "https://t.me/JV_Community",
+    "env": {
+        "API_ID": {
+            "description": "Get this value from my.telegram.org"
+        },
+        "API_HASH": {
+            "description": "Get this value from my.telegram.org"
+        },
+        "BOT_TOKEN": {
+            "description": "Get this from @BotFather"
+        },
+        "DATABASE_URL": {
+            "description": "MongoDB URI for Saving Chat Settings. Video Tutorial Here: https://www.youtube.com/watch?v=aXlF80Cn7iU"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
