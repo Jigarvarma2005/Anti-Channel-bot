@@ -73,7 +73,7 @@ async def main_handler(bot, message):
     if (await whitelist_check(chat_id, a_id)):
         return
     try:
-        res = await bot.kick_chat_member(chat_id, a_id)
+        res = await bot.ban_chat_member(chat_id, a_id)
     except:
         return await message.reply_text("Promote me as admin, to use me")
     if res:
@@ -142,7 +142,7 @@ async def cban_handler(bot, message):
         if (await whitelist_check(chat_id, a_id)):
             return await message.reply_text("Channel Id found in whitelist, so you can't ban this channel")
         await bot.resolve_peer(a_id)
-        res = await bot.kick_chat_member(chat_id, a_id)
+        res = await bot.ban_chat_member(chat_id, a_id)
         chat_data = await bot.get_chat(a_id)
         mention = f"@{chat_data.username}" if chat_data.username else chat_data.title
         if res:
