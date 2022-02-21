@@ -72,10 +72,10 @@ async def main_handler(bot, message):
     a_id = message.sender_chat.id
     if (await whitelist_check(chat_id, a_id)):
         return
+    elif a_id is chat_id:
+        return
     try:
         res = await bot.ban_chat_member(chat_id, a_id)
-    if a_id is chat_id:
-        return
     except:
         return await message.reply_text("Promote me as admin, to use me")
     if res:
