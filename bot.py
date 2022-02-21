@@ -72,6 +72,8 @@ async def main_handler(bot, message):
     a_id = message.sender_chat.id
     if (await whitelist_check(chat_id, a_id)):
         return
+    elif a_id is chat_id:
+        return
     try:
         res = await bot.ban_chat_member(chat_id, a_id)
     except:
@@ -117,6 +119,8 @@ async def cb_handler(bot, query):
         user = await bot.get_chat_member(chat_id, query.from_user.id)
         if user.status == "creator" or user.status == "administrator":
             pass
+        elif message.sender_chat.id is chat_id:
+            pass
         else:
             return await query.answer("This Message is Not For You!", show_alert=True)
         await bot.resolve_peer(an_id)
@@ -132,6 +136,8 @@ async def cban_handler(bot, message):
     chat_id = message.chat.id
     user = await bot.get_chat_member(message.chat.id, message.from_user.id)
     if user.status == "creator" or user.status == "administrator":
+        pass
+    elif message.sender_chat.id is chat_id:
         pass
     else:
         return
@@ -158,6 +164,7 @@ async def cban_handler(bot, message):
 async def uncban_handler(bot, message):
     chat_id = message.chat.id
     user = await bot.get_chat_member(message.chat.id, message.from_user.id)
+    
     if user.status == "creator" or user.status == "administrator":
         pass
     else:
@@ -187,6 +194,8 @@ async def add_whitelist_handler(bot, message):
     user = await bot.get_chat_member(chat_id, message.from_user.id)
     if user.status == "creator" or user.status == "administrator":
         pass
+    elif message.sender_chat.id is chat_id:
+        pass
     else:
         return
     try:
@@ -210,6 +219,8 @@ async def del_whitelist_handler(bot, message):
     user = await bot.get_chat_member(chat_id, message.from_user.id)
     if user.status == "creator" or user.status == "administrator":
         pass
+    elif message.sender_chat.id is chat_id:
+        pass
     else:
         return
     try:
@@ -232,6 +243,8 @@ async def del_whitelist_handler(bot, message):
     chat_id = message.chat.id
     user = await bot.get_chat_member(chat_id, message.from_user.id)
     if user.status == "creator" or user.status == "administrator":
+        pass
+    elif message.sender_chat.id is chat_id:
         pass
     else:
         return
